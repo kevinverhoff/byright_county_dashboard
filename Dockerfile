@@ -1,14 +1,16 @@
 # Use the official Python slim image
 FROM python:3.11-slim
 
+# Prevent apt-get from prompting for user input
+ENV DEBIAN_FRONTEND=noninteractive
+
 # Set the working directory
 WORKDIR /app
 
-# Install system dependencies
-RUN apt-get update && apt-get install -y \
+# Install only essential system dependencies
+RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
     curl \
-    software-properties-common \
     git \
     && rm -rf /var/lib/apt/lists/*
 
@@ -23,9 +25,6 @@ COPY . .
 
 # Expose the port Streamlit runs on
 EXPOSE 8501
-
-# Healthcheck for Streamlit
-HEALTHCHECK CMD curl --fail http://localhost:8501/_stcore/health
 
 # Command to run the Streamlit app
 ENTRYPOINT ["streamlit", "run", "app.py", "--server.port=8501", "--server.address=0.0.0.0"]
