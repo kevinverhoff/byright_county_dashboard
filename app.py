@@ -87,12 +87,18 @@ if view_mode in metric_info:
 main_metric_col = all_metrics_mapping[view_mode]["col"]
 metric_category = all_metrics_mapping[view_mode]["cat"]
 
-all_counties = sorted(df.dropna(subset=[main_metric_col])["full_name"].unique())
-highlight_county = st.sidebar.selectbox("Highlight County", ["None"] + all_counties)
 states = sorted(df.dropna(subset=[main_metric_col, "state_name"])["state_name"].unique())
 selected_states = st.sidebar.multiselect("States", states, default=[s for s in ["Indiana"] if s in states] or states)
 years = sorted(df.dropna(subset=[main_metric_col])["year"].unique())
 selected_years = st.sidebar.multiselect("Years", years, default=[max(years)] if years else [])
+
+# Dynamic Highlight County selection based on filters
+all_counties = sorted(df[
+    (df["state_name"].isin(selected_states)) & 
+    (df["year"].isin(selected_years)) & 
+    (df[main_metric_col].notna())
+]["full_name"].unique())
+highlight_county = st.sidebar.selectbox("Highlight County", ["None"] + all_counties)
 
 st.sidebar.markdown("---")
 st.sidebar.markdown(f'<a href="https://www.buymeacoffee.com/wZyLoMV" target="_blank" style="display: inline-block; padding: 12px 20px; background-color: #ffdd00; color: black; text-align: center; border-radius: 5px; text-decoration: none; font-weight: bold; width: 100%;">☕ Buy me a coffee (I\'ll use it to keep this site going)</a>', unsafe_allow_html=True)
