@@ -6,6 +6,7 @@ import plotly.express as px
 import plotly.graph_objects as go
 from scipy.stats import gaussian_kde
 import os
+import json
 
 # -----------------------
 # Page config
@@ -16,6 +17,10 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="expanded"
 )
+
+# Load descriptions
+with open("metric_descriptions.json", "r") as f:
+    metric_info = json.load(f)
 
 # CSS
 st.markdown("""<style>.block-container { padding-top: 2rem; } div[data-testid="stMetric"] { background-color: #CED0CE; padding: 15px; border-radius: 10px; border: 1px solid #33683A; } h1, h2, h3 { color: #33683A !important; }</style>""", unsafe_allow_html=True)
@@ -70,6 +75,15 @@ all_metrics_mapping = {
 }
 
 view_mode = st.sidebar.selectbox("Metric", list(all_metrics_mapping.keys()))
+
+# Metric description expander
+if view_mode in metric_info:
+    with st.sidebar.expander(f"About {view_mode}"):
+        info = metric_info[view_mode]
+        st.markdown(f"**Definition:** {info['definition']}")
+        st.markdown(f"**Meaning:** {info['meaning']}")
+        st.caption(f"Source: {info['source']}")
+
 main_metric_col = all_metrics_mapping[view_mode]["col"]
 metric_category = all_metrics_mapping[view_mode]["cat"]
 

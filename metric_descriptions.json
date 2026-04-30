@@ -1,0 +1,82 @@
+{
+  "Housing Units per Job": {
+    "definition": "The ratio of total housing units to the total number of jobs within the county.",
+    "meaning": "A value of 1.0 means there is exactly one housing unit for every job. Lower values (e.g., < 0.7) suggest a potential housing shortage relative to the workforce, while higher values suggest a 'bedroom community' where housing significantly exceeds local employment.",
+    "source": "U.S. Census Bureau ACS (Housing Units) & QWI (Employment)"
+  },
+  "People per Housing Unit": {
+    "definition": "The total population divided by the number of housing units.",
+    "meaning": "Represents the average number of people residing in each housing unit. Higher values may indicate larger average household sizes or potential housing overcrowding.",
+    "source": "U.S. Census Bureau ACS (American Community Survey)"
+  },
+  "Jobs per Capita": {
+    "definition": "Total jobs in the county divided by the total population.",
+    "meaning": "Measures employment density relative to the entire population. A value of 0.5 means there is one job for every two people in the county.",
+    "source": "U.S. Census Bureau QWI (Jobs) & ACS (Population)"
+  },
+  "Jobs per Working Age Adult": {
+    "definition": "Total jobs in the county divided by the population aged 18-64.",
+    "meaning": "Measures job availability relative to the likely workforce. A value of 1.0 means there is one local job for every working-age resident.",
+    "source": "U.S. Census Bureau QWI (Jobs) & ACS (Working Age Pop)"
+  },
+  "Absolute (Net Flow)": {
+    "definition": "The difference between the number of people commuting into the county for work and the number of residents commuting out.",
+    "meaning": "A positive value indicates the county is a 'net importer' of labor (a job center). A negative value indicates a 'bedroom community' that exports labor to neighboring areas.",
+    "source": "U.S. Census Bureau LODES (LEHD Origin-Destination Employment Statistics)"
+  },
+  "Commuter Ratio (In/Out)": {
+    "definition": "The number of in-commuters divided by the number of out-commuters.",
+    "meaning": "A ratio of 1.0 means the number of people coming into the county to work exactly equals the number of residents leaving to work elsewhere. Values > 1 indicate a job center; < 1 indicate a residential hub.",
+    "source": "U.S. Census Bureau LODES"
+  },
+  "In-Commuter Job Share (% of Jobs)": {
+    "definition": "The percentage of jobs in the county that are filled by people who live outside the county.",
+    "meaning": "Measures the degree to which a county's economy depends on labor from other counties. For example, 50% means half of all local jobs are held by non-residents.",
+    "source": "U.S. Census Bureau LODES"
+  },
+  "Resident Retention Share (% of Residents)": {
+    "definition": "The percentage of working residents who also work within their home county.",
+    "meaning": "Measures how many residents 'stay' in the county for work. 100% means all working residents work locally; lower values indicate higher levels of out-commuting.",
+    "source": "U.S. Census Bureau LODES"
+  },
+  "Average Age": {
+    "definition": "The weighted average age of the county population.",
+    "meaning": "An estimate of the overall age of the community based on census age-band distributions.",
+    "source": "U.S. Census Bureau ACS"
+  },
+  "% Residents Under 18": {
+    "definition": "The percentage of the population aged 0-17.",
+    "meaning": "Indicates the proportion of children and minors in the county.",
+    "source": "U.S. Census Bureau ACS"
+  },
+  "% Residents 18-22": {
+    "definition": "The percentage of the population aged 18-22.",
+    "meaning": "Often associated with college-aged populations or early-career starters.",
+    "source": "U.S. Census Bureau ACS"
+  },
+  "% Residents 23-34": {
+    "definition": "The percentage of the population aged 23-34.",
+    "meaning": "Represents young professionals and the early-to-mid career workforce.",
+    "source": "U.S. Census Bureau ACS"
+  },
+  "% Residents 35-49": {
+    "definition": "The percentage of the population aged 35-49.",
+    "meaning": "Represents the mid-career workforce.",
+    "source": "U.S. Census Bureau ACS"
+  },
+  "% Residents 50-64": {
+    "definition": "The percentage of the population aged 50-64.",
+    "meaning": "Represents the late-career workforce and pre-retirement age population.",
+    "source": "U.S. Census Bureau ACS"
+  },
+  "% Residents Over 65": {
+    "definition": "The percentage of the population aged 65 and older.",
+    "meaning": "Indicates the proportion of the retirement-age population.",
+    "source": "U.S. Census Bureau ACS"
+  },
+  "% Working Age (18-64)": {
+    "definition": "The percentage of the population aged 18-64.",
+    "meaning": "Represents the core potential labor force of the county.",
+    "source": "U.S. Census Bureau ACS"
+  }
+}
