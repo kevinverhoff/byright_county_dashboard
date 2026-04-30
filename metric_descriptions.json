@@ -19,7 +19,7 @@
     "meaning": "Measures job availability relative to the likely workforce. A value of 1.0 means there is one local job for every working-age resident.",
     "source": "U.S. Census Bureau QWI (Jobs) & ACS (Working Age Pop)"
   },
-  "Absolute (Net Flow)": {
+  "Total Commuter Flow": {
     "definition": "The difference between the number of people commuting into the county for work and the number of residents commuting out.",
     "meaning": "A positive value indicates the county is a 'net importer' of labor (a job center). A negative value indicates a 'bedroom community' that exports labor to neighboring areas.",
     "source": "U.S. Census Bureau LODES (LEHD Origin-Destination Employment Statistics)"

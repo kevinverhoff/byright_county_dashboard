@@ -60,7 +60,7 @@ all_metrics_mapping = {
     "People per Housing Unit": {"col": "people_per_housing", "cat": "Housing vs Jobs"},
     "Jobs per Capita": {"col": "jobs_per_capita", "cat": "Housing vs Jobs"},
     "Jobs per Working Age Adult": {"col": "jobs_per_working_age", "cat": "Housing vs Jobs"},
-    "Absolute (Net Flow)": {"col": "net_commute", "cat": "Commuter Flows"},
+    "Total Commuter Flow": {"col": "net_commute", "cat": "Commuter Flows"},
     "Commuter Ratio (In/Out)": {"col": "commuter_ratio", "cat": "Commuter Flows"},
     "In-Commuter Job Share (% of Jobs)": {"col": "in_commuter_share", "cat": "Commuter Flows"},
     "Resident Retention Share (% of Residents)": {"col": "resident_retention", "cat": "Commuter Flows"},
@@ -146,6 +146,7 @@ if not filtered.empty:
     else:
         if "Ratio" in view_mode: m1.metric("Reg. Commuter Ratio", f"{filtered['in_commuters'].sum() / filtered['out_commuters'].sum():.2f}")
         elif "Share" in view_mode: m1.metric("Reg. Commuter Intensity", f"{filtered['in_commuters'].sum() / filtered['lodes_total_jobs'].sum():.1%}")
+        elif "Flow" in view_mode: m1.metric("Reg. Net Commute", f"{filtered['net_commute'].mean():,.0f}")
         else: m1.metric("Avg In-Commute", f"{filtered['in_commuters'].mean():,.0f}")
 st.markdown("---")
 
@@ -158,7 +159,7 @@ if not filtered.empty:
     if "Ratio" in view_mode:
         max_dev = max(abs(filtered["metric"].max() - 1), abs(filtered["metric"].min() - 1), 0.1)
         color_args = {"range_color": [1 - max_dev, 1 + max_dev]}
-    elif "Absolute" in view_mode:
+    elif "Total Commuter Flow" in view_mode:
         limit = max(abs(filtered["metric"].min()), abs(filtered["metric"].max()), 1)
         color_args = {"range_color": [-limit, limit]}
     
